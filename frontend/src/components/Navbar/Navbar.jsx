@@ -43,7 +43,7 @@ function Navbar() {
       <Spacer />
       <Box>
         <Button  colorScheme='blue'  onClick={() => navigate("/login")}>Login</Button>
-        <Button colorScheme='blue' ml="30px" onClick={() => navigate("/register")}>Register</Button>
+        <Button colorScheme='blue' ml="30px" onClick={() => navigate("/signup")}>Register</Button>
       </Box>
     </Flex>
   );
