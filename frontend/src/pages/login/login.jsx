@@ -17,14 +17,45 @@ import {
   Link,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 // import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 export  function Login() {
   const [showPassword, setShowPassword] = useState(false)
+  const [register, setRegister] = useState({
+    email: "",
+    password: ""
+});
+const navigate = useNavigate();
 
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRegister({...register, [name]: value});
+}
+
+const handleSubmit = () => {
+    const { email, password } = register; 
+   const payload = {email, password};
+   fetch("http://localhost:8080/user/login", {
+    method:"POST",
+    headers:{
+        "Content-type" : "application/json"
+    },
+    body: JSON.stringify(payload)
+   })
+   .then(res => res.json())
+   .then(data => {
+    console.log(data);
+    alert("login succesful");
+    navigate("/translate");
+   })
+   .catch(error => {
+    console.error("Error:", error);
+  });
+}
   return (
     <Flex
-      minH={'100vh'}
+      minH={'80vh'}
       align={'center'}
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}>
@@ -44,12 +75,12 @@ export  function Login() {
             
             <FormControl id="email" isRequired >
               <FormLabel>Email address</FormLabel>
-              <Input type="email"  width="400px"/>
+              <Input type="email"  width="400px" name='email' onClick={handleChange}/>
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+                <Input type={showPassword ? 'text' : 'password'} name='password' onClick={handleChange}/>
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -67,7 +98,8 @@ export  function Login() {
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
-                }}>
+                }}
+                onClick={handleSubmit}>
                 Log In
               </Button>
             </Stack>
