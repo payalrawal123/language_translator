@@ -1,5 +1,6 @@
 import { Box, Button , Flex, Text} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../footer/footer";
 export const Home = () => {
     const navigate = useNavigate();
   return (
@@ -13,6 +14,7 @@ export const Home = () => {
         <Button ml="45%" size='lg'colorScheme='red' p="20px" onClick={() => navigate("/signup")}>Get Started</Button>
       
       </Box>
+      <Footer/>
     </>
   );
 };

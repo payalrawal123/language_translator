@@ -13,8 +13,8 @@ import {
   IconButton,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
-import { BiMailSend } from 'react-icons/bi'
+// import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+// import { BiMailSend } from 'react-icons/bi'
 
 const Logo = (props) => {
   return (
@@ -70,18 +70,18 @@ export default function Footer() {
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
             <Text fontSize={'sm'}>
-              © 2023 Chakra Templates. All rights reserved
+              © 2024 language translate. All rights reserved
             </Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'}>
+              {/* <SocialButton label={'Twitter'} href={'#'}>
                 <FaTwitter />
-              </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'}>
+              </SocialButton> */}
+              {/* <SocialButton label={'YouTube'} href={'#'}>
                 <FaYoutube />
               </SocialButton>
               <SocialButton label={'Instagram'} href={'#'}>
                 <FaInstagram />
-              </SocialButton>
+              </SocialButton> */}
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
@@ -117,7 +117,7 @@ export default function Footer() {
                   bg: 'green.600',
                 }}
                 aria-label="Subscribe"
-                icon={<BiMailSend />}
+                // icon={<BiMailSend />}
               />
             </Stack>
           </Stack>
