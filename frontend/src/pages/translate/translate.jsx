@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import './translator.css'
 import languageList from './language.json'; 
+import Footer from '../footer/footer';
 
 export  function Translator() { 
 	const [inputFormat, setInputFormat] = useState('en'); 
@@ -114,6 +115,7 @@ export  function Translator() {
 						<span className='translate'>Translate</span> 
 				</button> 
 			</div> 
+			<Footer/>
 		</div> 
 	) 
 }
